@@ -3,5 +3,20 @@
 
 
 {% block content %}
-    <h1>hello worold</h1>
+
+    {% if api %}
+        {% if api == "Error"%}
+            there is no response.....
+        {% else%}
+            <div class="jumbotron {{c_color}}">
+                    <h1 class="display-4">{{api.0.Category.Name}}</h1>
+                    <p class="lead">Air Quality : {{api.0.AQI}} Area:{{api.0.ReportingArea}}</p>
+                    <hr class="my-4">
+                    <p>
+                        {{categoly_description}}
+                    </p>
+            </div>
+
+        {% endif %}
+    {% endif %}
 {% endblock %}
